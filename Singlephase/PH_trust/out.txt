@@ -1,0 +1,16 @@
+Result:
+
+('Row:', 0, 'Columns:', 0, ',', 22.5, 'exceed Absolute Tolerance')
+('Row:', 0, 'Columns:', 0, ',', 22.5, 'exceed Relative Tolerance')
+('Row:', 0, 'Columns:', 1, ',', 3.0, 'exceed Absolute Tolerance')
+('Row:', 0, 'Columns:', 1, ',', 3.0, 'exceed Relative Tolerance')
+('Row:', 1, 'Columns:', 1, ',', 3.5, 'exceed Absolute Tolerance')
+('Row:', 1, 'Columns:', 1, ',', 3.5, 'exceed Relative Tolerance')
+('Row:', 1, 'Columns:', 3, ',', 0.5, 'exceed Absolute Tolerance')
+('Row:', 1, 'Columns:', 3, ',', 0.5, 'exceed Relative Tolerance')
+('Row:', 2, 'Columns:', 1, ',', 5.0, 'exceed Absolute Tolerance')
+('Row:', 2, 'Columns:', 1, ',', 5.0, 'exceed Relative Tolerance')
+('Row:', 2, 'Columns:', 4, ',', 2.8, 'exceed Absolute Tolerance')
+('Row:', 2, 'Columns:', 4, ',', 2.8, 'exceed Relative Tolerance')
+('Row:', 2, 'Columns:', 5, ',', 0.9000000000000004, 'exceed Absolute Tolerance')
+('Row:', 2, 'Columns:', 5, ',', 0.9000000000000004, 'exceed Relative Tolerance')
