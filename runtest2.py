@@ -8,11 +8,16 @@ name='config.py'    # Name of configuration files
 
 # Find all files that match the name of configuration files
 i=0
+j=0
+y=[]
 x=[]
 for root, dirs, files in os.walk(Cur_dir, topdown=True):    # Find all files in the the dir
     for name in files:
         if name=='config.py':                               # Look for config.py in filename
-            print(os.path.join(root, name))                 # Output path that fit the conditions
+            j=j+1
+            y.append([])
+            y[j-1]=root
+            #print(os.path.join(root, name))                 # Output path that fit the conditions
             i=i+1
             x.append([])
             x[i-1]=(os.path.join(root, name))               # Join path to and assign to valuable x  
@@ -20,8 +25,17 @@ for root, dirs, files in os.walk(Cur_dir, topdown=True):    # Find all files in 
 # Delete config.py from the end of each name
 File_name=[i.split('/config.py',1)[0] for i in x] 
 
+File_name2=[y.split(str(Cur_dir))[1] for y in File_name]
 
 """---------------------------------------------------------------------------------------------------------------------"""
+# Class of colors
+class bcolors:
+    N='\033[0m'             #normal
+    BOLD = '\033[1m'        #Bold
+    UNDERL = '\033[4m'      #Underline
+    RED = '\033[91m'
+    GREEN = '\033[42m'
+    
 
 # Importing Testing Comparision Program
 def Comparision(Pathlength):
@@ -41,8 +55,6 @@ def Comparision(Pathlength):
             if line:
                 line=[str(i) for i in line]  # convert to str
                 out.append(line)
-
-    #print('test.txt \n',out, '\n'*2)
 
     #Import Goldfile
     with open(Pathtogold) as f:
@@ -72,22 +84,19 @@ def Comparision(Pathlength):
             x[j].append(0)                  # Grow the column of x matrix
             x[j][i]=abs(float(out[j][i])-float(out2[j][i]))  #Find the tolerance value
 
-    #print('X data \n')                      
-    #print(x,'\n', 'Result','\n','-'*50)
-
     # Tolerance Comparision 
     for j in range(len(x)):
         for i in range(len(x[0])):
             if x[j][i]<Abs:
                 continue
             else:
-                print('Row:',j,'Columns:',i,',',x[j][i],'exceed Absolute Tolerance')  # Print it is greater than
+                print((bcolors.BOLD+'Row:')+ bcolors.N+str(j)+ bcolors.BOLD + ' Columns:' + bcolors.N + str(i),',',x[j][i],'exceed Absolute Tolerance')  # Print it is greater than
 
             if x[j][i]<Rel:
                 continue
             else:
-                print('Row:',j,'Columns:',i,',',x[j][i],'exceed Relative Tolerance')
-    print('\n', '-'*100)
+                print((bcolors.BOLD +'Row:')+ bcolors.N+str(j) + bcolors.BOLD + ' Columns:' + bcolors.N + str(i),',',x[j][i],'exceed Relative Tolerance')
+    print('_'*75)
     
     # Output files to a txt to the corrospondig dir.
     with open(Pathtoout, "w+") as f:
@@ -112,8 +121,8 @@ def Comparision(Pathlength):
 # Run the program 
 
 for i in range(len(File_name)):
-    print("\n",File_name[i], "\n")
-    
+    print(bcolors.UNDERL +"\n"+"Filepath:"+File_name2[i] +bcolors.N +"\n" )
+        
     Comparision(File_name[i])    
 
 
