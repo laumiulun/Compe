@@ -30,7 +30,7 @@ File_name2=[y.split(str(Cur_dir))[1] for y in File_name]
 """---------------------------------------------------------------------------------------------------------------------"""
 # Class of colors
 class bcolors:
-    N='\033[0m'             #normal
+    N='\033[0m'             #Normal
     BOLD = '\033[1m'        #Bold
     UNDERL = '\033[4m'      #Underline
     RED = '\033[91m'        #RED
@@ -46,7 +46,7 @@ def Comparision(Pathlength):
     Pathtotest=os.path.join(Pathlength,'test.txt')
     Pathtogold=os.path.join(Pathlength,'goldfile.txt')
     Pathtoout=os.path.join(Pathlength,'out.txt')
-    
+
     #Import Testfile
     with open(Pathtotest) as f:
         out=[]
@@ -78,6 +78,8 @@ def Comparision(Pathlength):
     NumColumns=(len(out[0]))                # Number of Columns
 
     x=[]                                    # Initalize the x matrix
+    numerror=0;
+    
     for j in range(len(out)):
         x.append([])                        # Grow the row of x matrix
         for i in range(len(out[0])):
@@ -87,18 +89,31 @@ def Comparision(Pathlength):
     # Tolerance Comparision 
     for j in range(len(x)):
         for i in range(len(x[0])):
-            if x[j][i]<Abs:
+            if x[j][i]<Abs:                 # Compare to Absolute Tolerance
                 continue
             else:
-                print((bcolors.BOLD+'Row:')+ bcolors.N+str(j)+ bcolors.BOLD + ' Columns:' + bcolors.N + str(i)+' , '+bcolors.RED+str(x[j][i])+bcolors.N+' exceed Absolute Tolerance')  # Print it is greater than
+                print((bcolors.BOLD+'Row:')+ bcolors.N+str(j)+ bcolors.BOLD + ' Columns:',
+                      bcolors.N + str(i)+bcolors.BOLD+' , Test:'+ bcolors.N+str(out2[j][i])+' , '+
+                      bcolors.BOLD+' Gold: ' +bcolors.N+str(out[j][i])+' , '+
+                      bcolors.RED+str(x[j][i])+
+                      bcolors.N+' exceed Absolute Tolerance')  # Print it
+                numerror=numerror+1;
+                
+            if x[j][i]<Rel:                 # Compare to Relative Tolerance
+                continue
+            else:
+                 print((bcolors.BOLD+'Row:')+ bcolors.N+str(j)+ bcolors.BOLD + ' Columns:',
+                      bcolors.N + str(i)+bcolors.BOLD+' , Test:'+ bcolors.N+str(out2[j][i])+' , '+
+                      bcolors.BOLD+' Gold: ' +bcolors.N+str(out[j][i])+' , '+
+                      bcolors.RED+str(x[j][i])+
+                      bcolors.N+' exceed Relative Tolerance')  # Print it
 
-            if x[j][i]<Rel:
-                continue
-            else:
-                print((bcolors.BOLD +'Row:')+ bcolors.N+str(j) + bcolors.BOLD + ' Columns:' + bcolors.N + str(i)+' , '+bcolors.RED+str(x[j][i])+bcolors.N+' exceed Relative Tolerance')
-    print(bcolors.GREEN+" OK "+ bcolors.N)
-    print('_'*75)
-    
+    # IF encounter no error, Output "OK"
+    if numerror==0:
+        print(bcolors.GREEN+" OK "+ bcolors.N)
+        print('_'*75)
+    else:
+        print('_'*75)
     # Output files to a txt to the corrospondig dir.
     with open(Pathtoout, "w+") as f:
         f.write('Result:\n')
@@ -127,6 +142,6 @@ for i in range(len(File_name)):
 
 
 print(bcolors.BOLD+"RESULT: " +bcolors.GREEN+"OK"+bcolors.N)
-print(bcolors.BOLD+"NUMOFTESTS: "+bcolors.N+str(len(y))+bcolors.N)
+print(bcolors.BOLD+"NUMOFTESTS: "+str(len(y))+bcolors.N)
 
 
