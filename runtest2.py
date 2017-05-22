@@ -33,8 +33,8 @@ class bcolors:
     N='\033[0m'             #normal
     BOLD = '\033[1m'        #Bold
     UNDERL = '\033[4m'      #Underline
-    RED = '\033[91m'
-    GREEN = '\033[42m'
+    RED = '\033[91m'        #RED
+    GREEN = '\033[42m'      #GREEN
     
 
 # Importing Testing Comparision Program
@@ -42,7 +42,7 @@ def Comparision(Pathlength):
     import sys
     
     # Join the file pathlength
-    print('Comparision Test','*'*60)
+    print(bcolors.RED+'Comparision Test '+bcolors.N+'*'*60)
     Pathtotest=os.path.join(Pathlength,'test.txt')
     Pathtogold=os.path.join(Pathlength,'goldfile.txt')
     Pathtoout=os.path.join(Pathlength,'out.txt')
@@ -90,12 +90,13 @@ def Comparision(Pathlength):
             if x[j][i]<Abs:
                 continue
             else:
-                print((bcolors.BOLD+'Row:')+ bcolors.N+str(j)+ bcolors.BOLD + ' Columns:' + bcolors.N + str(i),',',x[j][i],'exceed Absolute Tolerance')  # Print it is greater than
+                print((bcolors.BOLD+'Row:')+ bcolors.N+str(j)+ bcolors.BOLD + ' Columns:' + bcolors.N + str(i)+' , '+bcolors.RED+str(x[j][i])+bcolors.N+' exceed Absolute Tolerance')  # Print it is greater than
 
             if x[j][i]<Rel:
                 continue
             else:
-                print((bcolors.BOLD +'Row:')+ bcolors.N+str(j) + bcolors.BOLD + ' Columns:' + bcolors.N + str(i),',',x[j][i],'exceed Relative Tolerance')
+                print((bcolors.BOLD +'Row:')+ bcolors.N+str(j) + bcolors.BOLD + ' Columns:' + bcolors.N + str(i)+' , '+bcolors.RED+str(x[j][i])+bcolors.N+' exceed Relative Tolerance')
+    print(bcolors.GREEN+" OK "+ bcolors.N)
     print('_'*75)
     
     # Output files to a txt to the corrospondig dir.
@@ -119,10 +120,13 @@ def Comparision(Pathlength):
 """-------------------------------------------------------------------------------------------------------------"""
 
 # Run the program 
-
 for i in range(len(File_name)):
-    print(bcolors.UNDERL +"\n"+"Filepath:"+File_name2[i] +bcolors.N +"\n" )
+    print(bcolors.BOLD+"\n"+"TEST:"+bcolors.N+bcolors.UNDERL+str(File_name2[i])+bcolors.N +"\n" )
         
     Comparision(File_name[i])    
+
+
+print(bcolors.BOLD+"RESULT: " +bcolors.GREEN+"OK"+bcolors.N)
+print(bcolors.BOLD+"NUMOFTESTS: "+bcolors.N+str(len(y))+bcolors.N)
 
 
