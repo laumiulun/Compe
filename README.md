@@ -19,7 +19,7 @@ In order to use Compe, make sure your data sets are named goldfile.txt(Reference
 
 To run Compe, navigate to the directory where Compe is located and type:
 
-    "./run_test"
+    ./run_test
 
 * Writing tests
 * Code review
