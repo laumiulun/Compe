@@ -17,7 +17,8 @@ The program will compare the two data sets and output locations of which it exce
 ### Using Compe ###
 In order to use Compe, make sure your data sets are named goldfile.txt(Reference Data) and test.txt(Testing Data). Additionally, modlify the absolute and relative tolerence to yoyr desire by change the values in config.py 
 
-To run Compe, navigate to the directory where Compe is located and type
+To run Compe, navigate to the directory where Compe is located and type:
+
     "./run_test"
 
 * Writing tests
