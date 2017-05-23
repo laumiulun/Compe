@@ -1,6 +1,1 @@
 Result:
-
-('Row:', 0, 'Columns:', 0, ',', 22.5, 'exceed Absolute Tolerance')
-('Row:', 0, 'Columns:', 0, ',', 22.5, 'exceed Relative Tolerance')
-('Row:', 2, 'Columns:', 5, ',', 0.09999999999999964, 'exceed Absolute Tolerance')
-('Row:', 2, 'Columns:', 5, ',', 0.09999999999999964, 'exceed Relative Tolerance')

@@ -40,7 +40,9 @@ class bcolors:
 # Importing Testing Comparision Program
 def Comparision(Pathlength):
     import sys
-    
+
+    Test='Test: '
+    Ref='Ref: '
     # Join the file pathlength
     print(bcolors.RED+'Comparision Test '+bcolors.N+'*'*60)
     Pathtotest=os.path.join(Pathlength,'test.txt')
@@ -65,8 +67,15 @@ def Comparision(Pathlength):
                 line=[str(i) for i in line]  # convert to str
                 out2.append(line)
 
-    #print('goldtest.txt \n',out2, '\n'*2)
+    # Cleanup each file   
+    z=out[0]
+    top=[i.split('|')[1] for i in z]
+    
+    # Delete the top row of each files
+    del out[0]
+    del out2[0]
 
+    # Capture config value
     sys.path.append(Pathlength)
     import config
     Abs=float((config.Tolerance['Abs']))
@@ -93,8 +102,8 @@ def Comparision(Pathlength):
                 continue
             else:
                 print((bcolors.BOLD+'Row:')+ bcolors.N+str(j)+ bcolors.BOLD + ' Columns:',
-                      bcolors.N + str(i)+bcolors.BOLD+' , Test:'+ bcolors.N+str(out2[j][i])+' , '+
-                      bcolors.BOLD+' Gold: ' +bcolors.N+str(out[j][i])+' , '+
+                      bcolors.N + str(top[i])+bcolors.BOLD+' , Test: '+ bcolors.N+str(out2[j][i])+' , '+
+                      bcolors.BOLD+str(Ref)+bcolors.N+str(out[j][i])+' , '+
                       bcolors.RED+str(x[j][i])+
                       bcolors.N+' exceed Absolute Tolerance')  # Print it
                 numerror=numerror+1;
@@ -103,8 +112,8 @@ def Comparision(Pathlength):
                 continue
             else:
                  print((bcolors.BOLD+'Row:')+ bcolors.N+str(j)+ bcolors.BOLD + ' Columns:',
-                      bcolors.N + str(i)+bcolors.BOLD+' , Test:'+ bcolors.N+str(out2[j][i])+' , '+
-                      bcolors.BOLD+' Gold: ' +bcolors.N+str(out[j][i])+' , '+
+                      bcolors.N + str(top[i])+bcolors.BOLD+' , Test: '+ bcolors.N+str(out2[j][i])+' , '+
+                      bcolors.BOLD+Ref +bcolors.N+str(out[j][i])+' , '+
                       bcolors.RED+str(x[j][i])+
                       bcolors.N+' exceed Relative Tolerance')  # Print it
 

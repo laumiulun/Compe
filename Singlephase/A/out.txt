@@ -1,6 +1,4 @@
 Result:
 
-('Row:', 0, 'Columns:', 0, ',', 2.999999999997449e-05, 'exceed Absolute Tolerance')
-('Row:', 0, 'Columns:', 0, ',', 2.999999999997449e-05, 'exceed Relative Tolerance')
-('Row:', 0, 'Columns:', 1, ',', 1.995000000000035e-05, 'exceed Absolute Tolerance')
-('Row:', 0, 'Columns:', 1, ',', 1.995000000000035e-05, 'exceed Relative Tolerance')
+('Row:', 0, 'Columns:', 0, ',', 0.23449999999999993, 'exceed Absolute Tolerance')
+('Row:', 0, 'Columns:', 0, ',', 0.23449999999999993, 'exceed Relative Tolerance')
