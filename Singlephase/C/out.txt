@@ -1,1 +1,12 @@
 Result:
+
+('Row:', 0, 'Columns:', 0, ',', 0.3456733999999999, 'exceed Absolute Tolerance')
+('Row:', 0, 'Columns:', 0, ',', 0.3456733999999999, 'exceed Relative Tolerance')
+('Row:', 2, 'Columns:', 0, ',', 0.3424545000000001, 'exceed Absolute Tolerance')
+('Row:', 2, 'Columns:', 0, ',', 0.3424545000000001, 'exceed Relative Tolerance')
+('Row:', 2, 'Columns:', 1, ',', 0.4563245, 'exceed Absolute Tolerance')
+('Row:', 2, 'Columns:', 1, ',', 0.4563245, 'exceed Relative Tolerance')
+('Row:', 2, 'Columns:', 2, ',', 0.43145599999999984, 'exceed Absolute Tolerance')
+('Row:', 2, 'Columns:', 2, ',', 0.43145599999999984, 'exceed Relative Tolerance')
+('Row:', 2, 'Columns:', 3, ',', 0.4532400000000001, 'exceed Absolute Tolerance')
+('Row:', 2, 'Columns:', 3, ',', 0.4532400000000001, 'exceed Relative Tolerance')
