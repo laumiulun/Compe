@@ -35,6 +35,5 @@ Note:
 * Make sure there is a space before each rows
 * The reference/test Filepath are relative filepath from where config.txt is located
  
-### Owner ###
-* Owner: Miu Lun Lau
-* Other community or team contact
+### Contact ###
+* Developer: Andy
