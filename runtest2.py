@@ -1,7 +1,8 @@
 """ Andy Lau, INL 2017 """
 
 import os
-
+import sys
+import subprocess
 Cur_dir=os.getcwd() # Find the current dir path
 name='config.py'    # Name of configuration files
 
@@ -13,7 +14,7 @@ y=[]
 x=[]
 for root, dirs, files in os.walk(Cur_dir, topdown=True):    # Find all files in the the dir
     for name in files:
-        if name=='config.py':                               # Look for config.py in filename
+        if name=='config.txt':                               # Look for config.py in filename
             j=j+1
             y.append([])
             y[j-1]=root
@@ -23,9 +24,10 @@ for root, dirs, files in os.walk(Cur_dir, topdown=True):    # Find all files in 
             x[i-1]=(os.path.join(root, name))               # Join path to and assign to valuable x  
 
 # Delete config.py from the end of each name
-File_name=[i.split('/config.py',1)[0] for i in x] 
+File_name=[i.split('/config.txt',1)[0] for i in x] 
 
 File_name2=[y.split(str(Cur_dir))[1] for y in File_name]
+
 
 """---------------------------------------------------------------------------------------------------------------------"""
 # Class of colors
@@ -40,13 +42,34 @@ class bcolors:
 # Importing Testing Comparision Program
 def Comparision(Pathlength):
     import sys
+    
+    ## Import config.txt
+    Pathtoconfig=os.path.join(Pathlength,'config.txt')
+
+    with open(Pathtoconfig) as f:
+        out3=[]
+        for line in f:
+            line = line.split()
+            if line:
+                line=[str(i) for i in line]  # convert to str
+                out3.append(line)
+    configD=[]
+    for i in range(len(out3)):
+        configD.append([])
+        configD[i]=out3[i][1]
+
+    Abs=float(configD[0])
+    Rel=float(configD[1])
+    GOLD=configD[2]
+    TEST=configD[3]
+
 
     Test='Test: '
     Ref='Ref: '
     # Join the file pathlength
     print(bcolors.RED+'Comparision Test '+bcolors.N+'*'*60)
-    Pathtotest=os.path.join(Pathlength,'test.txt')
-    Pathtogold=os.path.join(Pathlength,'goldfile.txt')
+    Pathtotest=os.path.join(Pathlength,TEST)
+    Pathtogold=os.path.join(Pathlength,GOLD)
     Pathtoout=os.path.join(Pathlength,'out.txt')
 
     #Import Testfile
@@ -68,19 +91,12 @@ def Comparision(Pathlength):
                 out2.append(line)
 
     # Cleanup each file   
-    z=out[0]
-    top=[i.split('|')[1] for i in z]
+    top=out[0]
+    
     
     # Delete the top row of each files
     del out[0]
     del out2[0]
-
-    # Capture config value
-    sys.path.append(Pathlength)
-    import config
-    Abs=float((config.Tolerance['Abs']))
-    Rel=float((config.Tolerance['Rel']))
-
 
     # Manulipte Files input as script
     NumRows=(len(out))                      # Number of Rows
@@ -142,15 +158,24 @@ def Comparision(Pathlength):
                     f.write('\n')
                     f.write(str(M))
 """-------------------------------------------------------------------------------------------------------------"""
+s_name=[]
+# Run the program
+for i in range(len(File_name)):
+    s_name.append([])
+    s_name[i]=("cd;cd "+File_name[i]+";~/rdgflo1d/singlephase/src/rdg1d")
+    
+    output=subprocess.call(s_name[i],shell=True)
 
-# Run the program 
+subprocess.call("clear",shell=True)
+
 for i in range(len(File_name)):
     print(bcolors.BOLD+"\n"+"TEST:"+bcolors.N+bcolors.UNDERL+str(File_name2[i])+bcolors.N +"\n" )
-        
+    
     Comparision(File_name[i])    
-
+    
 
 print(bcolors.BOLD+"RESULT: " +bcolors.GREEN+"OK"+bcolors.N)
 print(bcolors.BOLD+"NUMOFTESTS: "+str(len(y))+bcolors.N)
+
 
 
