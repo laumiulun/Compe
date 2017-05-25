@@ -2,7 +2,7 @@
 
 ### Overview ###
 
-### Reqirement ###
+### Requirement ###
 * Python 3.6.1 
 
 ### Getting Started ###
