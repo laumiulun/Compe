@@ -16,7 +16,7 @@ To run Compe, navigate to the directory where Compe is located and type:
     ./run_test
 
 
-### Set up Compe ###
+### Setup Compe ###
 Set up config.txt
 
 Create a txt file in the directory of your txt location, and follow the formate for the following:
@@ -33,6 +33,5 @@ Modlify values abd filepath to your configurations
 Note: Make sure there is a space before each row
  
 ### Owner ###
-
 * Owner: Miu Lun Lau
 * Other community or team contact
