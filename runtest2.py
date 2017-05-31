@@ -3,6 +3,7 @@
 import os
 import sys
 import subprocess
+import csv
 Cur_dir=os.getcwd() # Find the current dir path
 name='config.py'    # Name of configuration files
 
@@ -73,22 +74,22 @@ def Comparision(Pathlength):
     Pathtoout=os.path.join(Pathlength,'out.txt')
 
     #Import Testfile
-    with open(Pathtotest) as f:
+    with open(Pathtotest) as csvfile:
         out=[]
-        for line in f:
-            line = line.split()
-            if line:
-                line=[str(i) for i in line]  # convert to str
-                out.append(line)
+        readCSV = csv.reader(csvfile, delimiter=',')
+        for row in readCSV:
+            if row:
+                row=[str(i) for i in row]
+                out.append(row)
 
     #Import Goldfile
-    with open(Pathtogold) as f:
+    with open(Pathtogold) as csvfile:
         out2=[]
-        for line in f:
-            line = line.split()
-            if line:
-                line=[str(i) for i in line]  # convert to str
-                out2.append(line)
+        readCSV = csv.reader(csvfile, delimiter=',')
+        for row in readCSV:
+            if row:
+                row=[str(i) for i in row]
+                out2.append(row)
 
     # Cleanup each file   
     top=out[0]
@@ -100,14 +101,14 @@ def Comparision(Pathlength):
 
     # Manulipte Files input as script
     NumRows=(len(out))                      # Number of Rows
-    NumColumns=(len(out[0]))                # Number of Columns
+    NumColumns=(len(out[0])-1)                # Number of Columns
 
     x=[]                                    # Initalize the x matrix
     numerror=0;
     
-    for j in range(len(out)):
+    for j in range(NumRows):
         x.append([])                        # Grow the row of x matrix
-        for i in range(len(out[0])):
+        for i in range(NumColumns):
             x[j].append(0)                  # Grow the column of x matrix
             x[j][i]=abs(float(out[j][i])-float(out2[j][i]))  #Find the tolerance value
 

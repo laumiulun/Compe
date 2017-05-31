@@ -1,4 +1,4 @@
 Absolute_Tolerance: 1e-5
 Relative_Tolerance: 1e-5
-Reference_Filepath: goldfile.txt
-Test_Filepath: test.txt
+Reference_Filepath: gold/out.csv
+Test_Filepath: out.csv

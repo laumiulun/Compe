@@ -1,4 +1,4 @@
 Absolute_Tolerance: 1e-5
 Relative_Tolerance: 1e-5
-Reference_Filepath: gold/rdg1d.output
-Test_Filepath: rdg1d.output
+Reference_Filepath: gold/out.csv
+Test_Filepath: out.csv
