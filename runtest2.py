@@ -102,10 +102,9 @@ def Comparision(Pathlength):
     # Manulipte Files input as script
     NumRows=(len(out))                      # Number of Rows
     NumColumns=(len(out[0])-1)                # Number of Columns
-
-    x=[]                                    # Initalize the x matrix
+                                               # Initalize the x matrix
     numerror=0;
-    
+    x=[] 
     for j in range(NumRows):
         x.append([])                        # Grow the row of x matrix
         for i in range(NumColumns):
@@ -113,8 +112,8 @@ def Comparision(Pathlength):
             x[j][i]=abs(float(out[j][i])-float(out2[j][i]))  #Find the tolerance value
 
     # Tolerance Comparision 
-    for j in range(len(x)):
-        for i in range(len(x[0])):
+    for j in range(NumRows):
+        for i in range(NumColumns):
             if x[j][i]<Abs:                 # Compare to Absolute Tolerance
                 continue
             else:
@@ -143,8 +142,8 @@ def Comparision(Pathlength):
     # Output files to a txt to the corrospondig dir.
     with open(Pathtoout, "w+") as f:
         f.write('Result:\n')
-        for j in range(len(x)):
-            for i in range(len(x[0])):
+        for j in range(NumRows):
+            for i in range(NumColumns):
                 if x[j][i]<Abs:
                     continue
                 else:
