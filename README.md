@@ -3,6 +3,7 @@
 ### Overview ###
 
 ### Requirement ###
+
 * Python 3.6.1 
 
 ### Getting Started ###
@@ -15,7 +16,6 @@ The program will actively look for file with the name “config.txt” which con
 To run Compe, navigate to the directory where Compe is located and type:
 
     ./run_test
-
 
 ### Setup Compe ###
 Set up config.txt
@@ -36,4 +36,10 @@ Note:
 * The reference/test Filepath are relative filepath from where config.txt is located
  
 ### Contact ###
-* Developer: Andy
+* Developer: MIU LUN LAU
+
+| dfds |   |   |   |   |
+|------|---|---|---|---|
+|      |   |   |   |   |
+|      |   |   |   |   |
+|      |   |   |   |   |
