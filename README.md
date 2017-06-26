@@ -12,10 +12,8 @@ Compe is publically hosted on Github as a repository. To clone Compe, please vis
 Compe is developed using **Python 3.6.1**, please make sure the correct python version is used in-order for it to work properly. 
 
 ### Getting Started ###
-The program will actively look for file with the name “config.txt” which contain the relative and absolute tolerance set by user.  The same directory that contain the configuration files must also contain two data files, which must be named:
+The program will actively look for file with the name “config.txt” which contains the relative and absolute tolerance set by user.  The same directory that contain the configuration files must also contain two data files. 
 
-	“goldfile.txt”
-	“test.txt”
 
 ### Using Compe ###
 To run Compe, navigate to the directory where Compe is located and type:
