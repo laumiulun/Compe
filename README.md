@@ -9,21 +9,18 @@ Compe is publically hosted on Github as a repository. To clone Compe, please vis
 
 ### Requirement ###
 
-Compe is developed using **Python 3.6.1**, please make sure the correct python version is used in-order for it to work properly. 
+Compe is developed using **Python 2.7.13**, please make sure the correct python version is used in-order for it to work properly. 
 
 ### Getting Started ###
-The program will actively look for file with the name “config.txt” which contains the relative and absolute tolerance set by user.  The same directory that contain the configuration files must also contain two data files. 
-
+The program will actively look for file with the name “config.txt” which contains the relative and absolute tolerance set by user. 
 
 ### Using Compe ###
 To run Compe, navigate to the directory where Compe is located and type:
 
     ./run_test
 
-### Setup Compe ###
-Set up config.txt
-
-Create a txt file in the directory of your txt location, and follow the formate for the following:
+### Configuration Files ###
+Create a file in the directory of your test location, and follow the format for the following:
 
 ```
 Absolute_Tolerance: 1e-5   
@@ -32,7 +29,7 @@ Reference_Filepath: gold/rdg1d.output
 Test_Filepath: rdg1d.output
 ```
 
-Modlify values abd filepath to your configurations
+Modlify values and filepath to your configurations
 
 Note: 
 * Make sure there is a space before each rows
